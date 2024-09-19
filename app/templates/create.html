@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+
+<h1>Create Todo</h1>
+<form action="" method="post" novalidate class="add-task-container">
+    {{form.hidden_tag()}}
+    <p>
+        {{form.todo.label}}
+        {{form.todo(size=32, class="task-input")}}
+    </p><br>
+    <p>{{form.submit(class="add-btn")}}</p>
+</form>
+
+</div>
+
+{% endblock %}

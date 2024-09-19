@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Todo List</h1>
+
+            <!-- Create Task Button -->
+        <div class="button-container">
+            <a href="/create" class="create-btn">Create New Task</a>
+        </div> <br>
+        <table class="todo-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Task</th>
+                    <th>-</th>
+                    <th>-</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for todo in todos %}
+                <tr>
+                    <td>1</td>
+                    <td>{{todo.todo}}</td>
+                    <td><a href="">edit</a></td>
+                    <td><a href="">delete</a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
