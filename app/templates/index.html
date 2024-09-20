@@ -18,14 +18,25 @@
                 </tr>
             </thead>
             <tbody>
+            {%if todos %}
             {% for todo in todos %}
                 <tr>
-                    <td>1</td>
+                    <td>{{loop.index}}</td>
                     <td>{{todo.todo}}</td>
-                    <td><a href="">edit</a></td>
-                    <td><a href="">delete</a></td>
+                    <td><a href="{{url_for('update', id=todo.id)}}">Edit</a></td>
+                    <td>
+                        <form action="{{url_for('delete', id=todo.id)}}" method="POST" style="display: inline">
+                            {{form.hidden_tag()}}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="4">No tasks found</td>
+            </tr>
+            {% endif %}
 
             </tbody>
         </table>
